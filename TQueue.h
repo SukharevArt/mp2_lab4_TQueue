@@ -64,8 +64,6 @@ public:
 
 template<class T>
 TQueue<T>& TQueue<T>::operator=(const TQueue<T> & a){
-		if (this == *a)
-			return *this;
 		if (MaxSize != a.MaxSize) {
 			delete[] pArr;
 			MaxSize = a.MaxSize;
