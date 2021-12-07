@@ -21,6 +21,18 @@ TEST(TQueue, can_pop_from_queue) {
 	EXPECT_EQ(y, 30);
 }
 
+TEST(TQueue, cant_pop_from_empty_queue) {
+	TQueue<int> q;
+	ASSERT_ANY_THROW(q.pop());
+}
+
+TEST(TQueue, cant_push_into_full_queue) {
+	TQueue<int> q(10);
+	for (int i = 0; i < 10; i++)
+		q.push(i);
+	ASSERT_ANY_THROW(q.push(40));
+}
+
 TEST(TQueue, can_get_front_queue) {
 	TQueue<int > q;
 	q.push(30);
@@ -61,5 +73,41 @@ TEST(TQueue, can_copy_queue) {
 		EXPECT_EQ(q2.front(),q.front());
 		q.pop(); q1.pop(); q2.pop();
 	}
+}
 
+TEST(TQueue, copy_queue_have_own_memory) {
+	TQueue<int> q(10);
+	q.push(50);
+	q.push(6);
+	TQueue<int > q1, q2(q);
+	q1 = q;
+	q.pop();
+	EXPECT_NE(q1.front(),q.front());
+	EXPECT_NE(q2.front(),q.front());
+	EXPECT_EQ(q2.front(),50);
+	EXPECT_EQ(q2.front(),50);
+}
+
+TEST(TQueue, can_push_more_then_size_elements) {
+	TQueue<int > q;
+	for (int i = 0; i < 7; i++) {
+		ASSERT_NO_THROW(q.push(i));
+	}
+	//size=7
+	for (int i = 0; i < 4; i++) {
+		ASSERT_NO_THROW(q.pop());
+	}
+	//size=3
+	for (int i = 0; i < 7; i++) {
+		ASSERT_NO_THROW(q.push(i));
+	}
+	//size=10
+	for (int i = 0; i < 8; i++) {
+		ASSERT_NO_THROW(q.pop());
+	}
+	//size=2
+	for (int i = 0; i < 4; i++) {
+		ASSERT_NO_THROW(q.push(i));
+	}
+	//size=6
 }
