@@ -65,6 +65,7 @@ namespace VisualQueue {
 	private: System::Windows::Forms::TextBox^ textBox7;
 	private: System::ComponentModel::IContainer^ components;
 	private: System::Int32 count;
+	private: System::Windows::Forms::Button^ button3;
 	private: System::Int32 turn;
 
 	protected:
@@ -103,6 +104,7 @@ namespace VisualQueue {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -222,6 +224,7 @@ namespace VisualQueue {
 			// 
 			// button2
 			// 
+			this->button2->Enabled = false;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->button2->Location = System::Drawing::Point(641, 43);
@@ -237,7 +240,7 @@ namespace VisualQueue {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label7->Location = System::Drawing::Point(500, 125);
+			this->label7->Location = System::Drawing::Point(483, 141);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(298, 24);
 			this->label7->TabIndex = 14;
@@ -248,7 +251,7 @@ namespace VisualQueue {
 			// 
 			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox8->Location = System::Drawing::Point(562, 162);
+			this->textBox8->Location = System::Drawing::Point(545, 178);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->ReadOnly = true;
 			this->textBox8->Size = System::Drawing::Size(179, 28);
@@ -265,7 +268,7 @@ namespace VisualQueue {
 			// 
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label8->Location = System::Drawing::Point(487, 308);
+			this->label8->Location = System::Drawing::Point(470, 323);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(351, 52);
 			this->label8->TabIndex = 17;
@@ -278,7 +281,7 @@ namespace VisualQueue {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(487, 208);
+			this->label4->Location = System::Drawing::Point(470, 223);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(116, 25);
 			this->label4->TabIndex = 18;
@@ -289,7 +292,7 @@ namespace VisualQueue {
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label9->Location = System::Drawing::Point(692, 208);
+			this->label9->Location = System::Drawing::Point(675, 223);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(91, 25);
 			this->label9->TabIndex = 19;
@@ -299,7 +302,7 @@ namespace VisualQueue {
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox4->Location = System::Drawing::Point(464, 248);
+			this->textBox4->Location = System::Drawing::Point(447, 263);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(156, 30);
@@ -311,7 +314,7 @@ namespace VisualQueue {
 			// 
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox7->Location = System::Drawing::Point(671, 248);
+			this->textBox7->Location = System::Drawing::Point(654, 263);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->ReadOnly = true;
 			this->textBox7->Size = System::Drawing::Size(153, 30);
@@ -319,11 +322,25 @@ namespace VisualQueue {
 			this->textBox7->Text = L"0";
 			this->textBox7->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 			// 
+			// button3
+			// 
+			this->button3->Enabled = false;
+			this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->button3->Location = System::Drawing::Point(565, 98);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(142, 34);
+			this->button3->TabIndex = 22;
+			this->button3->Text = L"Пауза";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &WindowQueue::button3_Click);
+			// 
 			// WindowQueue
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(908, 541);
+			this->ClientSize = System::Drawing::Size(932, 553);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->label9);
@@ -361,8 +378,10 @@ namespace VisualQueue {
 	}
 
 	System::Void Draw() {
+		int len = 130;
+
 		Pen^ pen = gcnew Pen(SystemColors::Control);
-		pen->Width = 100;
+		pen->Width = len;
 
 		Int32 sz= Convert::ToInt32(textBox1->Text);
 		Int32 d1 = turn*360/sz;
@@ -370,12 +389,12 @@ namespace VisualQueue {
 
 
 		Graphics^ graph = this->CreateGraphics();
-		graph->DrawRectangle(pen,400,300,100,100);
+		graph->DrawRectangle(pen,400,300,len,len);
 		pen->Color = Color::Blue;
-		pen->Width = 10;
+		pen->Width = len/10;
 
 		Graphics^ grap = this->CreateGraphics();
-		grap->DrawArc(pen, 400, 300, 100, 100, d1, d2);
+		grap->DrawArc(pen, 400, 300, len, len, d1, d2);
 
 	}
 	System::Void Push() {
@@ -441,8 +460,8 @@ namespace VisualQueue {
 		textBox6->ReadOnly = true;
 		label8->Visible = false;
 		
-
-
+		this->button2->Enabled = true;
+		this->button3->Enabled = true;
 		this->timer1->Interval = Convert::ToInt32(this->textBox3->Text);
 		this->timer1->Enabled = true;
 		queue_process = TQueue<int>(Convert::ToInt32(this->textBox1->Text));
@@ -467,6 +486,8 @@ namespace VisualQueue {
 		textBox7->Text = "0";
 		count = 0; turn = 0;
 		Draw();
+		this->button2->Enabled = false;
+		this->button3->Enabled = false;
 	}
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
@@ -476,6 +497,9 @@ namespace VisualQueue {
 		Draw();
 	}
 
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->timer1->Enabled = !this->timer1->Enabled;
+	}
 };
 
 }
