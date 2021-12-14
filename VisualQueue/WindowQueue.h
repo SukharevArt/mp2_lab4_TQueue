@@ -66,6 +66,8 @@ namespace VisualQueue {
 	private: System::ComponentModel::IContainer^ components;
 	private: System::Int32 count;
 	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Label^ label10;
+	private: System::Windows::Forms::TextBox^ textBox9;
 	private: System::Int32 turn;
 
 	protected:
@@ -105,6 +107,8 @@ namespace VisualQueue {
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->label10 = (gcnew System::Windows::Forms::Label());
+			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -268,7 +272,7 @@ namespace VisualQueue {
 			// 
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label8->Location = System::Drawing::Point(470, 323);
+			this->label8->Location = System::Drawing::Point(470, 428);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(351, 52);
 			this->label8->TabIndex = 17;
@@ -335,11 +339,36 @@ namespace VisualQueue {
 			this->button3->UseVisualStyleBackColor = true;
 			this->button3->Click += gcnew System::EventHandler(this, &WindowQueue::button3_Click);
 			// 
+			// label10
+			// 
+			this->label10->AutoSize = true;
+			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label10->Location = System::Drawing::Point(560, 310);
+			this->label10->Name = L"label10";
+			this->label10->Size = System::Drawing::Size(139, 25);
+			this->label10->TabIndex = 23;
+			this->label10->Text = L"Число тактов";
+			// 
+			// textBox9
+			// 
+			this->textBox9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->textBox9->Location = System::Drawing::Point(540, 341);
+			this->textBox9->Name = L"textBox9";
+			this->textBox9->ReadOnly = true;
+			this->textBox9->Size = System::Drawing::Size(183, 30);
+			this->textBox9->TabIndex = 24;
+			this->textBox9->Text = L"0";
+			this->textBox9->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
+			// 
 			// WindowQueue
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(932, 553);
+			this->ClientSize = System::Drawing::Size(982, 603);
+			this->Controls->Add(this->textBox9);
+			this->Controls->Add(this->label10);
 			this->Controls->Add(this->button3);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox4);
@@ -389,12 +418,12 @@ namespace VisualQueue {
 
 
 		Graphics^ graph = this->CreateGraphics();
-		graph->DrawRectangle(pen,400,300,len,len);
+		graph->DrawRectangle(pen,400,340,len,len);
 		pen->Color = Color::Blue;
 		pen->Width = len/10;
 
 		Graphics^ grap = this->CreateGraphics();
-		grap->DrawArc(pen, 400, 300, len, len, d1, d2);
+		grap->DrawArc(pen, 400, 340, len, len, d1, d2);
 
 	}
 	System::Void Push() {
@@ -453,6 +482,7 @@ namespace VisualQueue {
 		textBox8->Text = textBox2->Text;
 		textBox4->Text = "0";
 		textBox7->Text = "0";
+		textBox9->Text = "0";
 		textBox1->ReadOnly = true;
 		textBox2->ReadOnly = true;
 		textBox3->ReadOnly = true;
@@ -484,22 +514,26 @@ namespace VisualQueue {
 		textBox8->Text = textBox2->Text;
 		textBox4->Text = "0";
 		textBox7->Text = "0";
+		textBox9->Text = "0";
 		count = 0; turn = 0;
 		Draw();
 		this->button2->Enabled = false;
 		this->button3->Enabled = false;
+		
 	}
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 		// тик таймера
 		Push();
 		Pop();
+		textBox9->Text = Convert::ToString(Convert::ToInt32(textBox9->Text) + 1);
 		Draw();
 	}
 
 	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->timer1->Enabled = !this->timer1->Enabled;
 	}
+
 };
 
 }
