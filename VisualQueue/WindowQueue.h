@@ -119,6 +119,7 @@ namespace VisualQueue {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(167, 28);
 			this->textBox1->TabIndex = 0;
+			this->textBox1->Text = L"100";
 			// 
 			// label1
 			// 
@@ -185,6 +186,7 @@ namespace VisualQueue {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(167, 28);
 			this->textBox2->TabIndex = 7;
+			this->textBox2->Text = L"50";
 			this->textBox2->TextChanged += gcnew System::EventHandler(this, &WindowQueue::textBox2_TextChanged);
 			// 
 			// textBox3
@@ -195,6 +197,7 @@ namespace VisualQueue {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(167, 28);
 			this->textBox3->TabIndex = 8;
+			this->textBox3->Text = L"200";
 			// 
 			// textBox5
 			// 
@@ -204,6 +207,7 @@ namespace VisualQueue {
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(167, 28);
 			this->textBox5->TabIndex = 10;
+			this->textBox5->Text = L"0.7";
 			// 
 			// textBox6
 			// 
@@ -213,6 +217,7 @@ namespace VisualQueue {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(167, 28);
 			this->textBox6->TabIndex = 11;
+			this->textBox6->Text = L"0.5";
 			// 
 			// button1
 			// 
@@ -519,7 +524,6 @@ namespace VisualQueue {
 		Draw();
 		this->button2->Enabled = false;
 		this->button3->Enabled = false;
-		
 	}
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
